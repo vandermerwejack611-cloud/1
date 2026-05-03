@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
     <title>Africa's Leading CSI News | Simphiwe Mtetwa</title>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         /* ============================================
@@ -66,11 +69,25 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        .vamtam-theme-nav::before { content: var(--vamtam-icon-nav); }
-        .vamtam-theme-close::before { content: var(--vamtam-icon-close); }
-        .vamtam-theme-search::before { content: var(--vamtam-icon-search); }
-        .vamtam-theme-arrow-dawn::before { content: var(--vamtam-icon-arrow-dawn); }
-        .vamtam-theme-arrow-up::before { content: var(--vamtam-icon-arrow-up); }
+        .vamtam-theme-nav::before {
+            content: var(--vamtam-icon-nav);
+        }
+
+        .vamtam-theme-close::before {
+            content: var(--vamtam-icon-close);
+        }
+
+        .vamtam-theme-search::before {
+            content: var(--vamtam-icon-search);
+        }
+
+        .vamtam-theme-arrow-dawn::before {
+            content: var(--vamtam-icon-arrow-dawn);
+        }
+
+        .vamtam-theme-arrow-up::before {
+            content: var(--vamtam-icon-arrow-up);
+        }
 
         body {
             font-family: 'Helvetica', 'BlinkMacSystemFont', -apple-system, 'Roboto', 'Lucida Sans', sans-serif;
@@ -85,9 +102,9 @@
            ============================================ */
 
         .top-nav {
-            background: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(0px);
-            -webkit-backdrop-filter: blur(0px);
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
             padding: 30px 0;
             position: fixed;
             width: 100%;
@@ -95,16 +112,16 @@
             left: 0;
             z-index: 1000;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0);
+            border-bottom: 1px solid transparent;
         }
 
         .top-nav.scrolled {
-            background: rgba(26, 77, 61, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             padding: 18px 0;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -178,7 +195,13 @@
         }
 
         .top-nav.scrolled .main-nav>li>a {
-            color: #ffffff;
+            color: var(--dark-text);
+        }
+
+        .top-nav.scrolled .nav-icon,
+        .top-nav.scrolled #mobileToggle,
+        .top-nav.scrolled .elementor-icon {
+            color: var(--dark-text);
         }
 
         /* Premium Mega Dropdown */
@@ -238,9 +261,15 @@
         }
 
         /* Elementor Icon Widget Styles */
-        .elementor-widget-icon { display: inline-block; }
-        .elementor-icon-wrapper { display: flex; justify-content: center; }
-        
+        .elementor-widget-icon {
+            display: inline-block;
+        }
+
+        .elementor-icon-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
         .elementor-icon {
             display: inline-block;
             line-height: 1;
@@ -629,9 +658,22 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(5px); }
-            60% { transform: translateY(3px); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(5px);
+            }
+
+            60% {
+                transform: translateY(3px);
+            }
         }
 
         /* Ken Burns Effect for Hero Images */
@@ -718,8 +760,17 @@
         }
 
         @keyframes pulseFade {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
         }
 
         .side-panel-content h3 {
@@ -789,6 +840,703 @@
         }
 
         /* ============================================
+           WEF IMPACT SECTION - BRAND COLORS + 10% PADDING
+           ============================================ */
+
+        .wef-impact-section {
+            padding: 96px 0 112px;
+            background: #ffffff;
+            position: relative;
+        }
+
+        /* Container - 10% PADDING EACH SIDE */
+        .wef-container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0 10%;
+            box-sizing: border-box;
+        }
+
+        /* ===== HERO SPLIT SECTION ===== */
+        .wef-hero-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        /* Typography - Brand fonts */
+        .wef-hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .wef-headline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(32px, 3.5vw, 52px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--dark-text);
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        /* Link button - Brand style with lime accent */
+        .wef-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: gap 0.25s ease, color 0.25s ease;
+            align-self: flex-start;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .wef-link-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--lime-green);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .wef-link-btn:hover {
+            gap: 14px;
+            color: var(--lime-green);
+        }
+
+        .wef-link-btn:hover::after {
+            width: 100%;
+        }
+
+        .wef-link-btn svg {
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+            stroke: var(--lime-green);
+        }
+
+        .wef-link-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* ===== VIDEO PLAYER ===== */
+        .wef-video-wrapper {
+            width: 100%;
+        }
+
+        .wef-video-card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #000;
+        }
+
+        .wef-video-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .wef-video-card:hover .wef-video-img {
+            transform: scale(1.04);
+        }
+
+        .wef-video-darken {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.45) 100%);
+            pointer-events: none;
+        }
+
+        /* Play button - white circle with lime hover */
+        .wef-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 24px rgba(26, 77, 62, 0.25);
+            color: var(--dark-text);
+        }
+
+        .wef-play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--lime-green);
+            box-shadow: 0 12px 35px rgba(196, 216, 46, 0.4);
+        }
+
+        .wef-video-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            z-index: 2;
+        }
+
+        /* ===== TABS NAVIGATION ===== */
+        .wef-tabs-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 64px;
+            flex-wrap: wrap;
+        }
+
+        .wef-tabs-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        .wef-tabs-group {
+            display: flex;
+            gap: 0;
+            background: var(--light-gray);
+            padding: 5px;
+            border-radius: 28px;
+        }
+
+        /* Tab buttons - pill shape with brand colors */
+        .wef-tab {
+            padding: 11px 26px;
+            border: none;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-text);
+            cursor: pointer;
+            border-radius: 24px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .wef-tab:hover {
+            background: rgba(26, 77, 62, 0.08);
+            color: var(--primary-green);
+        }
+
+        .wef-tab-active {
+            background: var(--primary-dark);
+            color: var(--white);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(26, 77, 62, 0.2);
+        }
+
+        .wef-tab-active:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* ===== CONTENT GRID: Sidebar + Cards ===== */
+        .wef-grid-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        /* Sidebar / Intro column */
+        .wef-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .wef-sidebar-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-teal);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .wef-sidebar-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--dark-text);
+            margin: 0;
+        }
+
+        .wef-sidebar-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666666;
+            margin: 0;
+        }
+
+        /* Cards grid area - ONE LINE HORIZONTAL */
+        .wef-cards-area {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Individual card */
+        .wef-card {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--medium-gray);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+
+        .wef-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(26, 77, 62, 0.18);
+        }
+
+        .wef-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .wef-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .wef-card-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+            transition: height 0.35s ease;
+        }
+
+        .wef-card:hover .wef-card-gradient {
+            height: 70%;
+        }
+
+        .wef-card-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 22px 18px;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--white);
+            z-index: 1;
+        }
+
+        /* ===== RESPONSIVE BREAKPOINTS - Maintain 10% Padding ===== */
+        @media (max-width: 1280px) {
+            .wef-container {
+                padding: 0 8%;
+            }
+
+            .wef-grid-layout {
+                grid-template-columns: 340px 1fr;
+                gap: 44px;
+            }
+
+            .wef-cards-area {
+                grid-template-columns: repeat(4, 1fr);
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .wef-impact-section {
+                padding: 72px 0 88px;
+            }
+
+            .wef-container {
+                padding: 0 6%;
+            }
+
+            .wef-hero-split {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                margin-bottom: 64px;
+            }
+
+            .wef-grid-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .wef-sidebar {
+                position: static;
+            }
+
+            .wef-tabs-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                margin-bottom: 48px;
+            }
+
+            .wef-cards-area {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wef-impact-section {
+                padding: 56px 0 72px;
+            }
+
+            .wef-container {
+                padding: 0 5%;
+            }
+
+            .wef-headline {
+                font-size: clamp(28px, 6vw, 38px);
+            }
+
+            .wef-tabs-label {
+                font-size: 20px;
+            }
+
+            .wef-sidebar-title {
+                font-size: 24px;
+            }
+
+            .wef-cards-area {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .wef-cards-area::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .wef-cards-area::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 3px;
+            }
+
+            .wef-cards-area::-webkit-scrollbar-thumb {
+                background: #888;
+                border-radius: 3px;
+            }
+
+            .wef-tabs-group {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .wef-tab {
+                flex: 1;
+                text-align: center;
+                min-width: fit-content;
+            }
+        }
+
+        /* ============================================
+           MAGAZINE GAZETTE SECTION - UNCODE INSPIRED
+           ============================================ */
+
+        .magazine-gazette {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            background: var(--white);
+            position: relative;
+        }
+
+        @media (max-width: 1024px) {
+            .magazine-gazette {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* LEFT SIDE - STICKY FEATURED post */
+        .magazine-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        @media (max-width: 1024px) {
+            .magazine-sticky {
+                position: relative;
+                height: 70vh;
+            }
+        }
+
+        .sticky-post-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .magazine-sticky:hover .sticky-post-img {
+            transform: scale(1.05);
+        }
+
+        .sticky-post-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10% 10% 8% 18vw;
+            /* Matches Hero Alignment */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-post-overlay {
+                padding: 30px;
+            }
+        }
+
+        .sticky-post-meta {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--lime-green);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .sticky-post-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(32px, 4vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        /* RIGHT SIDE - SCROLLABLE GRID */
+        .magazine-scrollable {
+            padding: 100px 10% 100px 80px;
+            background: #fdfdfd;
+        }
+
+        @media (max-width: 1280px) {
+            .magazine-scrollable {
+                padding: 80px 8% 80px 40px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .magazine-scrollable {
+                padding: 60px 10%;
+            }
+        }
+
+        .gazette-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px 40px;
+        }
+
+        @media (max-width: 600px) {
+            .gazette-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gazette-item {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            cursor: pointer;
+        }
+
+        .gazette-img-wrap {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .gazette-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reveal + Icon on Hover */
+        .gazette-img-wrap::after {
+            content: '+';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 300;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+
+        .gazette-img-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 77, 62, 0.3);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 1;
+        }
+
+        .gazette-item:hover .gazette-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        .gazette-item:hover .gazette-img-wrap::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .gazette-item:hover .gazette-img-wrap::before {
+            opacity: 1;
+        }
+
+        .gazette-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .gazette-meta {
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .gazette-category {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+        }
+
+        .gazette-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--dark-text);
+            transition: color 0.3s;
+        }
+
+        .gazette-item:hover .gazette-title {
+            color: var(--primary-green);
+        }
+
+        .gazette-excerpt {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .gazette-footer {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-show-more {
+            background: transparent;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--dark-text);
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .btn-show-more::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--dark-text);
+            transform: scaleX(0.3);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-show-more:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* ============================================
            RESPONSIVE DESIGN
            ============================================ */
 
@@ -852,8 +1600,9 @@
             }
         }
     </style>
-<base target="_blank">
+    <base target="_blank">
 </head>
+
 <body>
 
     <!-- ============================================
@@ -863,7 +1612,9 @@
         <div class="nav-container">
             <a href="javascript:void(0)" onclick="showPage('home')" class="logo">
                 <img src="https://www.image2url.com/r2/default/images/1777216092994-c7e885df-05b1-48e6-b802-69a615cb8fff.png"
-                    alt="Simphiwe Mtetwa Logo">
+                    alt="Simphiwe Mtetwa Logo" class="logo-white">
+                <img src="https://www.image2url.com/r2/default/images/1777649055436-1057d549-9fe6-4e04-b970-568610a4c0a0.png"
+                    alt="Simphiwe Mtetwa Logo" class="logo-black" style="display: none;">
             </a>
 
             <div class="nav-right-wrap">
@@ -1095,9 +1846,232 @@
         </div>
     </section>
 
-    <!-- Placeholder Section for Scrolling -->
-    <section style="height: 100vh; background: var(--light-gray); display: flex; align-items: center; justify-content: center;">
-        <h2 style="font-family: var(--font-main); color: var(--primary-green); font-size: 2rem;">Content Section</h2>
+    <!-- ============================================
+         IMPACT SECTION - WEF STYLE WITH BRAND COLORS
+         ============================================ -->
+    <section class="wef-impact-section">
+        <div class="wef-container">
+            <!-- HERO SPLIT: Text Left + Video Right -->
+            <div class="wef-hero-split">
+                <div class="wef-hero-text">
+                    <h2 class="wef-headline">Committed to dismantling inequality and driving measurable, noticeable
+                        change in South Africa over the next 25 years through transformative Corporate Social
+                        Investment.</h2>
+                    <a href="#" class="wef-link-btn">
+                        More about the Forum
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="wef-video-wrapper">
+                    <div class="wef-video-card">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=500&fit=crop"
+                            alt="Forum Event" class="wef-video-img">
+                        <div class="wef-video-darken"></div>
+                        <button class="wef-play-btn" aria-label="Play video">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </button>
+                        <span class="wef-video-caption">Watch full video</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABS BAR -->
+            <div class="wef-tabs-row">
+                <span class="wef-tabs-label">How we drive impact</span>
+                <div class="wef-tabs-group">
+                    <button class="wef-tab wef-tab-active">CSI Indaba</button>
+                    <button class="wef-tab">CSI Magazine</button>
+                    <button class="wef-tab">CSI Insight</button>
+                    <button class="wef-tab">CSI Legacy</button>
+                </div>
+            </div>
+
+            <!-- CONTENT GRID: Intro + Cards -->
+            <div class="wef-grid-layout">
+                <aside class="wef-sidebar">
+                    <p class="wef-sidebar-tag">ABOUT THE CENTRES</p>
+                    <h3 class="wef-sidebar-title">We tackle global challenges through our 11 Centres</h3>
+                    <p class="wef-sidebar-desc">Our Centre teams convert ambition into focused action through structured
+                        initiatives and insight generation.</p>
+                    <a href="#" class="wef-link-btn">
+                        More about our Centres
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </aside>
+                <div class="wef-cards-area">
+                    <article class="wef-card">
+                        <img src="https://images.unsplash.com/photo-1565514020176-6c2235c8e875?w=400&h=500&fit=crop"
+                            alt="Manufacturing" loading="lazy">
+                        <div class="wef-card-gradient"></div>
+                        <h4 class="wef-card-label">Centre for Advanced Manufacturing and Supply Chains</h4>
+                    </article>
+                    <article class="wef-card">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=500&fit=crop"
+                            alt="AI Excellence" loading="lazy">
+                        <div class="wef-card-gradient"></div>
+                        <h4 class="wef-card-label">Centre for AI Excellence</h4>
+                    </article>
+                    <article class="wef-card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=500&fit=crop"
+                            alt="Cybersecurity" loading="lazy">
+                        <div class="wef-card-gradient"></div>
+                        <h4 class="wef-card-label">Centre for Cybersecurity</h4>
+                    </article>
+                    <article class="wef-card">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=500&fit=crop"
+                            alt="Energy" loading="lazy">
+                        <div class="wef-card-gradient"></div>
+                        <h4 class="wef-card-label">Centre for Energy and Materials</h4>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MAGAZINE GAZETTE SECTION
+         ============================================ -->
+    <section class="magazine-gazette">
+        <!-- LEFT: STICKY FEATURED -->
+        <div class="magazine-sticky">
+            <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&h=1800&fit=crop"
+                alt="Featured Story" class="sticky-post-img">
+            <div class="sticky-post-overlay">
+                <span class="sticky-post-meta">25.04.2024 • Featured</span>
+                <h2 class="sticky-post-title">Inside the World of African Philanthropy & Legacy</h2>
+                <a href="#" class="btn-line">
+                    Explore the story
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- RIGHT: SCROLLABLE GRID -->
+        <div class="magazine-scrollable">
+            <div class="gazette-grid">
+                <!-- Post 1 -->
+                <article class="gazette-item">
+                    <div class="gazette-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=600&fit=crop"
+                            alt="Environment">
+                    </div>
+                    <div class="gazette-info">
+                        <div class="gazette-meta">
+                            <span class="gazette-category">Lifestyle</span>
+                            <span>18.03.2024</span>
+                        </div>
+                        <h3 class="gazette-title">Sustainable Living: A Guide to Modern Philanthropy</h3>
+                        <p class="gazette-excerpt">Talking to changemakers is the norm. I’ll never forget the
+                            conversation with the aquarium fisherman, forest ranger, and women at the Thai market...</p>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="gazette-item">
+                    <div class="gazette-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=600&fit=crop"
+                            alt="Collaboration">
+                    </div>
+                    <div class="gazette-info">
+                        <div class="gazette-meta">
+                            <span class="gazette-category">Business</span>
+                            <span>12.03.2024</span>
+                        </div>
+                        <h3 class="gazette-title">Collaborative Impact: How Corporations Shape the Future</h3>
+                        <p class="gazette-excerpt">Just the other day I happened to wake up early. After a long time I
+                            could witness the sunrise and the movement of a new era in CSI...</p>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="gazette-item">
+                    <div class="gazette-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=600&fit=crop"
+                            alt="Innovation">
+                    </div>
+                    <div class="gazette-info">
+                        <div class="gazette-meta">
+                            <span class="gazette-category">Technology</span>
+                            <span>05.03.2024</span>
+                        </div>
+                        <h3 class="gazette-title">AI for Good: Transformative Tools in the Non-Profit Sector</h3>
+                        <p class="gazette-excerpt">Every selector has the potential to have unintended side effects.
+                            More surprisingly, the digital landscape is shifting faster than ever before...</p>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="gazette-item">
+                    <div class="gazette-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop"
+                            alt="Leadership">
+                    </div>
+                    <div class="gazette-info">
+                        <div class="gazette-meta">
+                            <span class="gazette-category">Leadership</span>
+                            <span>28.02.2024</span>
+                        </div>
+                        <h3 class="gazette-title">Leadership in Motion: The 25-Year Vision of Change</h3>
+                        <p class="gazette-excerpt">Many years ago, I worked for my parents who own a video production
+                            company. Because it is a family business, you inevitably end up wearing many hats...</p>
+                    </div>
+                </article>
+
+                <!-- Post 5 -->
+                <article class="gazette-item">
+                    <div class="gazette-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=600&fit=crop"
+                            alt="Team">
+                    </div>
+                    <div class="gazette-info">
+                        <div class="gazette-meta">
+                            <span class="gazette-category">Community</span>
+                            <span>20.02.2024</span>
+                        </div>
+                        <h3 class="gazette-title">Community Roots: Strengthening the Local Ecosystem</h3>
+                        <p class="gazette-excerpt">After designing my ideal week, I had a much clearer idea of how to
+                            create a framework that would empower me to feel more focused...</p>
+                    </div>
+                </article>
+
+                <!-- Post 6 -->
+                <article class="gazette-item">
+                    <div class="gazette-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=600&h=600&fit=crop"
+                            alt="Culture">
+                    </div>
+                    <div class="gazette-info">
+                        <div class="gazette-meta">
+                            <span class="gazette-category">Arts</span>
+                            <span>15.02.2024</span>
+                        </div>
+                        <h3 class="gazette-title">The Art of Giving: Cultural Shifts in Modern Philanthropy</h3>
+                        <p class="gazette-excerpt">Every story starts with a spark. Our cultural initiatives are
+                            designed to ignite that spark within every community we touch...</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="gazette-footer">
+                <button class="btn-show-more">Show More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Section Placeholder -->
+    <section
+        style="height: 60vh; background: var(--primary-green); display: flex; align-items: center; justify-content: center;">
+        <h2
+            style="font-family: 'Montserrat', sans-serif; color: var(--white); font-size: 2.5rem; text-align: center; padding: 0 10%;">
+            Empowering Africa's <span style="color: var(--lime-green);">Tomorrow</span></h2>
     </section>
 
     <!-- ============================================
@@ -1107,10 +2081,17 @@
         // Navigation scroll effect
         window.addEventListener('scroll', function () {
             const nav = document.getElementById('mainNav');
+            const logoWhite = document.querySelector('.logo-white');
+            const logoBlack = document.querySelector('.logo-black');
+
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
+                logoWhite.style.display = 'none';
+                logoBlack.style.display = 'block';
             } else {
                 nav.classList.remove('scrolled');
+                logoWhite.style.display = 'block';
+                logoBlack.style.display = 'none';
             }
         });
 
@@ -1223,4 +2204,5 @@
     </script>
 
 </body>
+
 </html>
