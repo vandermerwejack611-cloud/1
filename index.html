@@ -127,7 +127,7 @@
         .nav-container {
             max-width: none;
             margin: 0;
-            padding: 0 18vw 0 18vw;
+            padding: 0 10vw 0 10vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -151,7 +151,6 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            margin-left: -10%;
         }
 
         .logo img {
@@ -366,7 +365,12 @@
 
         .hero-slide.active {
             opacity: 1;
-            z-index: 2;
+            z-index: 5;
+            visibility: visible;
+        }
+
+        .slide-dark {
+            background: #111 !important;
         }
 
         .hero-slide img {
@@ -390,7 +394,7 @@
 
         .hero-content {
             max-width: 1100px;
-            padding: 0 5vw 0 18vw;
+            padding: 0 5vw 0 10vw;
             text-align: left;
             padding-top: 120px;
             width: 100%;
@@ -575,11 +579,11 @@
         .hero-tabs {
             position: absolute;
             bottom: 40px;
-            left: 18vw;
+            left: 10vw;
             display: flex;
             gap: 30px;
             z-index: 10;
-            width: calc(100% - 36vw);
+            width: calc(100% - 20vw);
         }
 
         .hero-tab {
@@ -1278,262 +1282,301 @@
         }
 
         /* ============================================
-           MAGAZINE GAZETTE SECTION - UNCODE INSPIRED
+           SCROLLING NEWS BANNER - PARALLAX EFFECT
            ============================================ */
 
-        .magazine-gazette {
+        .news-banner-container {
+            width: 100%;
+            background: var(--white);
+            padding: 40px 0;
+            overflow: hidden;
+            border-top: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--medium-gray);
+            white-space: nowrap;
+            position: relative;
+            z-index: 5;
+        }
+
+        .news-scroll-track {
+            display: inline-flex;
+            gap: 60px;
+            will-change: transform;
+            /* Auto-scroll removed for mouse scroll control */
+        }
+
+        .news-banner-container:hover .news-scroll-track {
+            animation-play-state: paused;
+        }
+
+        .news-item {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(40px, 8vw, 110px);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            opacity: 1;
+            letter-spacing: -2px;
+        }
+
+        /* Outline text effect for some items to add depth */
+        .news-item.outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--primary-green);
+        }
+
+        .news-dot {
+            width: 15px;
+            height: 15px;
+            background: var(--lime-green);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* ============================================
+           SPOTLIGHT SECTION - PREMIUM EDITORIAL
+           ============================================ */
+
+        .spotlight-section {
             display: grid;
             grid-template-columns: 50% 50%;
             background: var(--white);
             position: relative;
+            margin-top: 40px;
         }
 
+
+
         @media (max-width: 1024px) {
-            .magazine-gazette {
+            .spotlight-section {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* LEFT SIDE - STICKY FEATURED post */
-        .magazine-sticky {
+        /* LEFT SIDE - STICKY FEATURED */
+        .spotlight-sticky {
             position: sticky;
-            top: 0;
-            height: 100vh;
+            top: 100px; /* Offset for fixed navigation */
+            height: calc(100vh - 100px);
             overflow: hidden;
-            background: #000;
+            background: var(--primary-green);
         }
 
         @media (max-width: 1024px) {
-            .magazine-sticky {
+            .spotlight-sticky {
                 position: relative;
-                height: 70vh;
+                height: 75vh;
             }
         }
 
-        .sticky-post-img {
+        .spotlight-sticky-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.8;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.7;
+            transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
-        .magazine-sticky:hover .sticky-post-img {
-            transform: scale(1.05);
-        }
-
-        .sticky-post-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 10% 10% 8% 18vw;
-            /* Matches Hero Alignment */
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
-            color: var(--white);
-        }
-
-        @media (max-width: 768px) {
-            .sticky-post-overlay {
-                padding: 30px;
-            }
-        }
-
-        .sticky-post-meta {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--lime-green);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .sticky-post-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(32px, 4vw, 56px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
-
-        /* RIGHT SIDE - SCROLLABLE GRID */
-        .magazine-scrollable {
-            padding: 100px 10% 100px 80px;
-            background: #fdfdfd;
-        }
-
-        @media (max-width: 1280px) {
-            .magazine-scrollable {
-                padding: 80px 8% 80px 40px;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .magazine-scrollable {
-                padding: 60px 10%;
-            }
-        }
-
-        .gazette-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 50px 40px;
-        }
-
-        @media (max-width: 600px) {
-            .gazette-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .gazette-item {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            cursor: pointer;
-        }
-
-        .gazette-img-wrap {
-            position: relative;
-            aspect-ratio: 1 / 1;
-            border-radius: 4px;
-            overflow: hidden;
-            background: #eee;
-        }
-
-        .gazette-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Reveal + Icon on Hover */
-        .gazette-img-wrap::after {
-            content: '+';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.5);
-            width: 50px;
-            height: 50px;
-            background: var(--white);
-            color: var(--primary-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 300;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 2;
-        }
-
-        .gazette-img-wrap::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(26, 77, 62, 0.3);
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: 1;
-        }
-
-        .gazette-item:hover .gazette-img-wrap img {
+        .spotlight-sticky:hover .spotlight-sticky-img {
             transform: scale(1.08);
         }
 
-        .gazette-item:hover .gazette-img-wrap::after {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .gazette-item:hover .gazette-img-wrap::before {
-            opacity: 1;
-        }
-
-        .gazette-info {
+        .spotlight-overlay {
+            position: absolute;
+            inset: 0;
             display: flex;
             flex-direction: column;
+            justify-content: flex-end;
+            padding: 10% 10% 8% 10vw;
+            background: linear-gradient(to top, rgba(26, 77, 62, 0.9) 0%, transparent 70%);
+            color: var(--white);
+        }
+
+        @media (max-width: 1024px) {
+            .spotlight-overlay {
+                padding: 40px 10%;
+            }
+        }
+
+        .spotlight-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--lime-green);
+            margin-bottom: 20px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spotlight-label::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: var(--lime-green);
+        }
+
+        .spotlight-main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        /* RIGHT SIDE - SCROLLING GRID */
+        .spotlight-scrollable {
+            padding: 120px 10% 120px 80px;
+            background: #ffffff;
+        }
+
+        @media (max-width: 1280px) {
+            .spotlight-scrollable {
+                padding: 100px 8% 100px 60px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .spotlight-scrollable {
+                padding: 80px 10%;
+            }
+        }
+
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px 40px;
+        }
+
+        @media (max-width: 640px) {
+            .spotlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .spotlight-item {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            cursor: pointer;
+            group: spotlight;
+        }
+
+        .spotlight-img-box {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--light-gray);
+        }
+
+        .spotlight-cat-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--white);
+            color: var(--primary-green);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .spotlight-item:hover .spotlight-cat-tag {
+            background: var(--primary-green);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .spotlight-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        /* Modern reveal effect */
+        .spotlight-img-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary-green);
+            opacity: 0;
+            mix-blend-mode: multiply;
+            transition: opacity 0.4s ease;
+        }
+
+        .spotlight-item:hover .spotlight-img-box img {
+            transform: scale(1.1);
+        }
+
+        .spotlight-item:hover .spotlight-img-box::after {
+            opacity: 0.3;
+        }
+
+        .spotlight-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .spotlight-meta {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-teal);
+            display: flex;
+            align-items: center;
             gap: 12px;
         }
 
-        .gazette-meta {
-            font-size: 12px;
-            color: #888;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .gazette-category {
-            background: var(--primary-green);
-            color: var(--white);
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 10px;
-        }
-
-        .gazette-title {
+        .spotlight-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             line-height: 1.3;
             color: var(--dark-text);
             transition: color 0.3s;
         }
 
-        .gazette-item:hover .gazette-title {
+        .spotlight-item:hover .spotlight-title {
             color: var(--primary-green);
         }
 
-        .gazette-excerpt {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
+        .spotlight-desc {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        .gazette-footer {
-            margin-top: 60px;
+        .spotlight-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--medium-gray);
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .btn-show-more {
-            background: transparent;
-            border: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 16px;
-            color: var(--dark-text);
-            cursor: pointer;
-            position: relative;
-            padding-bottom: 8px;
-        }
-
-        .btn-show-more::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--dark-text);
-            transform: scaleX(0.3);
-            transform-origin: left;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn-show-more:hover::after {
-            transform: scaleX(1);
+        .spotlight-count {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
         }
 
         /* ============================================
@@ -1738,7 +1781,7 @@
                         alt="Inequality">
                 </picture>
                 <div class="hero-overlay">
-                    <div class="hero-content" style="padding-left: 18vw;">
+                    <div class="hero-content" style="padding-left: 10vw;">
                         <span class="hero-tag">Social Justice</span>
                         <h1 class="hero-title">
                             Why Inequality Persists:<br>
@@ -1766,7 +1809,7 @@
                         alt="Vision 2052">
                 </picture>
                 <div class="hero-overlay">
-                    <div class="hero-content" style="padding-left: 18vw;">
+                    <div class="hero-content" style="padding-left: 10vw;">
                         <span class="hero-tag">Strategic Vision</span>
                         <h1 class="hero-title">
                             <span class="hero-main">A 25-Year</span><br>
@@ -1784,7 +1827,7 @@
             <!-- Slide 3 -->
             <div class="hero-slide slide-dark" rtrvr-ls="Slide 3" rtrvr-ro="2" tabindex="-1">
                 <div class="hero-overlay">
-                    <div class="hero-content" style="padding-left: 18vw;">
+                    <div class="hero-content" style="padding-left: 10vw;">
                         <span class="hero-tag">Economic Impact</span>
                         <h1 class="hero-title">
                             <span class="hero-main">Unemployment Is Costing</span><br>
@@ -1804,7 +1847,7 @@
                 <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-11-scaled.jpg"
                     alt="Podcast">
                 <div class="hero-overlay">
-                    <div class="hero-content" style="padding-left: 18vw;">
+                    <div class="hero-content" style="padding-left: 10vw;">
                         <span class="hero-tag">The Podcast</span>
                         <h1 class="hero-title">
                             <span class="hero-main">Conversations That</span><br>
@@ -1937,134 +1980,127 @@
     </section>
 
     <!-- ============================================
-         MAGAZINE GAZETTE SECTION
+         SCROLLING NEWS BANNER (Parallax)
          ============================================ -->
-    <section class="magazine-gazette">
-        <!-- LEFT: STICKY FEATURED -->
-        <div class="magazine-sticky">
-            <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&h=1800&fit=crop"
-                alt="Featured Story" class="sticky-post-img">
-            <div class="sticky-post-overlay">
-                <span class="sticky-post-meta">25.04.2024 • Featured</span>
-                <h2 class="sticky-post-title">Inside the World of African Philanthropy & Legacy</h2>
-                <a href="#" class="btn-line">
-                    Explore the story
-                    <i class="fas fa-arrow-right arrow-icon"></i>
-                </a>
+    <div class="news-banner-container">
+        <div class="news-scroll-track" id="newsTrack">
+            <!-- Plain News Scroll -->
+            <div class="news-item">
+                News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News
+            </div>
+            <div class="news-item outline">
+                News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News
+            </div>
+            <div class="news-item">
+                News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News
+            </div>
+            <div class="news-item outline">
+                News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News <span class="news-dot"></span> News
             </div>
         </div>
+    </div>
 
-        <!-- RIGHT: SCROLLABLE GRID -->
-        <div class="magazine-scrollable">
-            <div class="gazette-grid">
-                <!-- Post 1 -->
-                <article class="gazette-item">
-                    <div class="gazette-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=600&fit=crop"
-                            alt="Environment">
-                    </div>
-                    <div class="gazette-info">
-                        <div class="gazette-meta">
-                            <span class="gazette-category">Lifestyle</span>
-                            <span>18.03.2024</span>
-                        </div>
-                        <h3 class="gazette-title">Sustainable Living: A Guide to Modern Philanthropy</h3>
-                        <p class="gazette-excerpt">Talking to changemakers is the norm. I’ll never forget the
-                            conversation with the aquarium fisherman, forest ranger, and women at the Thai market...</p>
-                    </div>
-                </article>
 
-                <!-- Post 2 -->
-                <article class="gazette-item">
-                    <div class="gazette-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=600&fit=crop"
-                            alt="Collaboration">
-                    </div>
-                    <div class="gazette-info">
-                        <div class="gazette-meta">
-                            <span class="gazette-category">Business</span>
-                            <span>12.03.2024</span>
-                        </div>
-                        <h3 class="gazette-title">Collaborative Impact: How Corporations Shape the Future</h3>
-                        <p class="gazette-excerpt">Just the other day I happened to wake up early. After a long time I
-                            could witness the sunrise and the movement of a new era in CSI...</p>
-                    </div>
-                </article>
-
-                <!-- Post 3 -->
-                <article class="gazette-item">
-                    <div class="gazette-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=600&fit=crop"
-                            alt="Innovation">
-                    </div>
-                    <div class="gazette-info">
-                        <div class="gazette-meta">
-                            <span class="gazette-category">Technology</span>
-                            <span>05.03.2024</span>
-                        </div>
-                        <h3 class="gazette-title">AI for Good: Transformative Tools in the Non-Profit Sector</h3>
-                        <p class="gazette-excerpt">Every selector has the potential to have unintended side effects.
-                            More surprisingly, the digital landscape is shifting faster than ever before...</p>
-                    </div>
-                </article>
-
-                <!-- Post 4 -->
-                <article class="gazette-item">
-                    <div class="gazette-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop"
-                            alt="Leadership">
-                    </div>
-                    <div class="gazette-info">
-                        <div class="gazette-meta">
-                            <span class="gazette-category">Leadership</span>
-                            <span>28.02.2024</span>
-                        </div>
-                        <h3 class="gazette-title">Leadership in Motion: The 25-Year Vision of Change</h3>
-                        <p class="gazette-excerpt">Many years ago, I worked for my parents who own a video production
-                            company. Because it is a family business, you inevitably end up wearing many hats...</p>
-                    </div>
-                </article>
-
-                <!-- Post 5 -->
-                <article class="gazette-item">
-                    <div class="gazette-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=600&fit=crop"
-                            alt="Team">
-                    </div>
-                    <div class="gazette-info">
-                        <div class="gazette-meta">
-                            <span class="gazette-category">Community</span>
-                            <span>20.02.2024</span>
-                        </div>
-                        <h3 class="gazette-title">Community Roots: Strengthening the Local Ecosystem</h3>
-                        <p class="gazette-excerpt">After designing my ideal week, I had a much clearer idea of how to
-                            create a framework that would empower me to feel more focused...</p>
-                    </div>
-                </article>
-
-                <!-- Post 6 -->
-                <article class="gazette-item">
-                    <div class="gazette-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=600&h=600&fit=crop"
-                            alt="Culture">
-                    </div>
-                    <div class="gazette-info">
-                        <div class="gazette-meta">
-                            <span class="gazette-category">Arts</span>
-                            <span>15.02.2024</span>
-                        </div>
-                        <h3 class="gazette-title">The Art of Giving: Cultural Shifts in Modern Philanthropy</h3>
-                        <p class="gazette-excerpt">Every story starts with a spark. Our cultural initiatives are
-                            designed to ignite that spark within every community we touch...</p>
-                    </div>
-                </article>
-            </div>
-
-            <div class="gazette-footer">
-                <button class="btn-show-more">Show More</button>
-            </div>
+    <!-- ============================================
+         SPOTLIGHT SECTION
+         ============================================ -->
+    <div class="wef-container" style="padding-top: 100px; padding-bottom: 100px; background: #ffffff;">
+        <div class="wef-tabs-row" style="margin-bottom: 0;">
+            <span class="wef-tabs-label">Spotlight</span>
         </div>
-    </section>
+
+        <section class="spotlight-section">
+
+            <!-- LEFT: STICKY FEATURED (Story 1) -->
+            <div class="spotlight-sticky">
+                <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&h=1800&fit=crop"
+                    alt="Featured Spotlight" class="spotlight-sticky-img">
+                <div class="spotlight-overlay">
+                    <span class="spotlight-label">Featured Spotlight</span>
+                    <h2 class="spotlight-main-title">The Future of <br>African Impact <br>Investment</h2>
+                    <a href="#" class="btn-line">
+                        Read Full Feature
+                        <i class="fas fa-arrow-right arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT: SCROLLABLE GRID (Stories 2-5) -->
+            <div class="spotlight-scrollable">
+                <div class="spotlight-grid">
+                    <!-- Story 2 -->
+                    <article class="spotlight-item">
+                        <div class="spotlight-img-box">
+                            <span class="spotlight-cat-tag">Leadership</span>
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=800&fit=crop"
+                                alt="Leadership">
+                        </div>
+                        <div class="spotlight-info">
+                            <div class="spotlight-meta">
+                                <span>May 2024</span>
+                            </div>
+                            <h3 class="spotlight-title">Dismantling Inequality: A 25-Year Vision</h3>
+                            <p class="spotlight-desc">Our commitment to measurable change starts with a radical rethink of Corporate Social Investment frameworks across the continent.</p>
+                        </div>
+                    </article>
+
+                    <!-- Story 3 -->
+                    <article class="spotlight-item">
+                        <div class="spotlight-img-box">
+                            <span class="spotlight-cat-tag">Environment</span>
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=800&fit=crop"
+                                alt="Sustainability">
+                        </div>
+                        <div class="spotlight-info">
+                            <div class="spotlight-meta">
+                                <span>April 2024</span>
+                            </div>
+                            <h3 class="spotlight-title">Green Legacies: Why Environment Matters Most</h3>
+                            <p class="spotlight-desc">Sustainability is no longer a choice; it's the foundation of any enduring legacy in the modern African business landscape.</p>
+                        </div>
+                    </article>
+
+                    <!-- Story 4 -->
+                    <article class="spotlight-item">
+                        <div class="spotlight-img-box">
+                            <span class="spotlight-cat-tag">Technology</span>
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=800&fit=crop"
+                                alt="Technology">
+                        </div>
+                        <div class="spotlight-info">
+                            <div class="spotlight-meta">
+                                <span>April 2024</span>
+                            </div>
+                            <h3 class="spotlight-title">AI for Good: Human-Centric Innovation</h3>
+                            <p class="spotlight-desc">Exploring how artificial intelligence can be harnessed to solve community-level challenges without losing the human touch.</p>
+                        </div>
+                    </article>
+
+                    <!-- Story 5 -->
+                    <article class="spotlight-item">
+                        <div class="spotlight-img-box">
+                            <span class="spotlight-cat-tag">Education</span>
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=800&fit=crop"
+                                alt="Education">
+                        </div>
+                        <div class="spotlight-info">
+                            <div class="spotlight-meta">
+                                <span>March 2024</span>
+                            </div>
+                            <h3 class="spotlight-title">The Classroom of 2050: Empowering Youth</h3>
+                            <p class="spotlight-desc">Investing in skills development today to ensure the leaders of tomorrow have the tools they need to thrive.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="spotlight-footer">
+                    <span class="spotlight-count">5 Featured Stories</span>
+                    <button class="btn-show-more">View All Insights</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
 
     <!-- Next Section Placeholder -->
     <section
@@ -2078,91 +2114,139 @@
          JAVASCRIPT FUNCTIONALITY
          ============================================ -->
     <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', function () {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navigation scroll effect
             const nav = document.getElementById('mainNav');
-            const logoWhite = document.querySelector('.logo-white');
-            const logoBlack = document.querySelector('.logo-black');
+            window.addEventListener('scroll', () => {
+                const logoWhite = document.querySelector('.logo-white');
+                const logoBlack = document.querySelector('.logo-black');
 
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-                logoWhite.style.display = 'none';
-                logoBlack.style.display = 'block';
-            } else {
-                nav.classList.remove('scrolled');
-                logoWhite.style.display = 'block';
-                logoBlack.style.display = 'none';
-            }
-        });
-
-        // Hero Slider Functionality
-        const slides = document.querySelectorAll('.hero-slide');
-        const tabs = document.querySelectorAll('.hero-tab');
-        const progressBars = document.querySelectorAll('.tab-progress');
-        let currentSlide = 0;
-        let slideInterval;
-        let progressInterval;
-        let startTime;
-        const duration = 6000;
-
-        function startSlider() {
-            startTime = Date.now();
-            updateProgress();
-            slideInterval = setInterval(nextSlide, duration);
-        }
-
-        function updateProgress() {
-            if (progressInterval) clearInterval(progressInterval);
-
-            progressInterval = setInterval(() => {
-                const elapsed = Date.now() - startTime;
-                const progress = Math.min((elapsed / duration) * 100, 100);
-
-                if (progressBars[currentSlide]) {
-                    progressBars[currentSlide].style.width = progress + '%';
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                    if (logoWhite) logoWhite.style.display = 'none';
+                    if (logoBlack) logoBlack.style.display = 'block';
+                } else {
+                    nav.classList.remove('scrolled');
+                    if (logoWhite) logoWhite.style.display = 'block';
+                    if (logoBlack) logoBlack.style.display = 'none';
                 }
-            }, 50);
-        }
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                tabs[i].classList.remove('active');
-                progressBars[i].style.width = '0%';
             });
 
-            slides[index].classList.add('active');
-            tabs[index].classList.add('active');
-            currentSlide = index;
-
-            startTime = Date.now();
-            updateProgress();
-
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, duration);
-        }
-
-        function nextSlide() {
-            let next = (currentSlide + 1) % slides.length;
-            showSlide(next);
-        }
-
-        tabs.forEach((tab, index) => {
-            tab.addEventListener('click', () => {
-                showSlide(index);
+            // Scrolling News Banner - Mouse Scroll Parallax
+            const newsTrack = document.getElementById('newsTrack');
+            window.addEventListener('scroll', () => {
+                if (newsTrack) {
+                    const scrollPos = window.scrollY;
+                    const sectionOffset = newsTrack.parentElement.offsetTop;
+                    const windowHeight = window.innerHeight;
+                    
+                    // Animate based on scroll relative to the section
+                    if (scrollPos > sectionOffset - windowHeight && scrollPos < sectionOffset + windowHeight) {
+                        const movement = (scrollPos - sectionOffset) * 0.8;
+                        newsTrack.style.transform = `translateX(${-movement}px)`;
+                    }
+                }
             });
-        });
 
-        startSlider();
+            // Side Panel Implementation
+            const mobileToggle = document.getElementById('mobileToggle');
+            const closeSidePanel = document.getElementById('closeSidePanel');
+            const sidePanel = document.getElementById('sidePanel');
+            const backdrop = document.getElementById('sidePanelBackdrop');
 
-        document.getElementById('scrollToNextSection').addEventListener('click', () => {
-            const nextSection = document.querySelector('.magazine-promo');
-            if (nextSection) {
-                nextSection.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                window.scrollTo({
-                    top: window.innerHeight,
-                    behavior: 'smooth'
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    sidePanel.classList.add('active');
+                    backdrop.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (closeSidePanel) {
+                closeSidePanel.addEventListener('click', () => {
+                    sidePanel.classList.remove('active');
+                    backdrop.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            if (backdrop) {
+                backdrop.addEventListener('click', () => {
+                    sidePanel.classList.remove('active');
+                    backdrop.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Hero Slider Functionality
+            const slides = document.querySelectorAll('.hero-slide');
+            const tabs = document.querySelectorAll('.hero-tab');
+            const progressBars = document.querySelectorAll('.tab-progress');
+            let currentSlide = 0;
+            let slideInterval;
+            let progressInterval;
+            let startTime;
+            const duration = 6000;
+
+            function startSlider() {
+                startTime = Date.now();
+                updateProgress();
+                slideInterval = setInterval(nextSlide, duration);
+            }
+
+            function updateProgress() {
+                if (progressInterval) clearInterval(progressInterval);
+                progressInterval = setInterval(() => {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min((elapsed / duration) * 100, 100);
+                    if (progressBars[currentSlide]) {
+                        progressBars[currentSlide].style.width = progress + '%';
+                    }
+                }, 50);
+            }
+
+            function showSlide(index) {
+                if (!slides[index]) return;
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (tabs[i]) tabs[i].classList.remove('active');
+                    if (progressBars[i]) progressBars[i].style.width = '0%';
+                });
+
+                slides[index].classList.add('active');
+                if (tabs[index]) tabs[index].classList.add('active');
+                currentSlide = index;
+                startTime = Date.now();
+                updateProgress();
+
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, duration);
+            }
+
+            function nextSlide() {
+                let next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+
+            if (slides.length > 0) startSlider();
+
+            const scrollBtn = document.getElementById('scrollToNextSection');
+            if (scrollBtn) {
+                scrollBtn.addEventListener('click', () => {
+                    const nextSection = document.querySelector('.news-banner-container');
+                    if (nextSection) {
+                        const navHeight = 80;
+                        const top = nextSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
                 });
             }
         });
@@ -2171,36 +2255,6 @@
             console.log('Navigating to:', pageId);
             window.scrollTo(0, 0);
         }
-
-        // Side Panel Implementation
-        const mobileToggle = document.getElementById('mobileToggle');
-        const sidePanel = document.getElementById('sidePanel');
-        const sidePanelBackdrop = document.getElementById('sidePanelBackdrop');
-        const closeSidePanel = document.getElementById('closeSidePanel');
-
-        function openSidePanel() {
-            sidePanel.classList.add('active');
-            sidePanelBackdrop.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeSidePanelFunc() {
-            sidePanel.classList.remove('active');
-            sidePanelBackdrop.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        mobileToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            openSidePanel();
-        });
-        closeSidePanel.addEventListener('click', closeSidePanelFunc);
-        sidePanelBackdrop.addEventListener('click', closeSidePanelFunc);
-
-        document.querySelectorAll('.side-panel-nav a').forEach(link => {
-            link.addEventListener('click', closeSidePanelFunc);
-        });
     </script>
 
 </body>
